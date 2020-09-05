@@ -1,0 +1,39 @@
+﻿@page "/edit/{id}"
+@inherits EditBase
+
+@if (Student == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <EditForm Model="Student" OnValidSubmit="EditStudent">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="form-group">
+            <label>Name: </label>
+            <div>
+                <InputText @bind-Value="Student.Name" />
+                <ValidationMessage For="() => Student.Name" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Email: </label>
+            <div>
+                <InputText @bind-Value="Student.Email" />
+                <ValidationMessage For="() => Student.Email" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Age: </label>
+            <div>
+                <InputText @bind-Value="Age" />
+                <ValidationMessage For="() => Age" />
+            </div>
+        </div>
+
+        <input type="submit" value="Edit User" />
+    </EditForm>
+
+}
+

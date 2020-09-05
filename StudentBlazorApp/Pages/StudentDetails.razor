@@ -1,0 +1,15 @@
+﻿@page "/details/{id}"
+@inherits StudentDetailsBase
+
+
+@if (Student == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <p>@Student.Id</p>
+    <p>@Student.Name</p>
+    <p>@Student.Email</p>
+    <p>@Student.Age</p>
+}

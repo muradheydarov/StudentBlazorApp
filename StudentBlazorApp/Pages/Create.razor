@@ -1,0 +1,30 @@
+﻿@page "/student/create"
+@inherits CreateBase
+
+<EditForm Model="Student" OnValidSubmit="CreateStudent">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="form-group">
+        <label>Name: </label>
+        <div>
+            <InputText @bind-Value="Student.Name" />
+            <ValidationMessage For="() => Student.Name" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Email: </label>
+        <div>
+            <InputText @bind-Value="Student.Email" />
+            <ValidationMessage For="() => Student.Email" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Age: </label>
+        <div>
+            <InputText @bind-Value="Age" />
+            <ValidationMessage For="() => Age" />
+        </div>
+    </div>
+
+    <input type="submit" value="Create User" />
+</EditForm>

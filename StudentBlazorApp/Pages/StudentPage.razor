@@ -1,0 +1,49 @@
+﻿@page "/student"
+@inherits StudentPageBase
+@attribute [Authorize]
+
+@if (Students == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <a href="/student/create">Create Student</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Age</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var studentItem in Students)
+            {
+                <tr>
+                    <th scope="row">@studentItem.Id</th>
+                    <td>@studentItem.Name</td>
+                    <td>@studentItem.Email</td>
+                    <td>@studentItem.Age</td>
+                    <td>
+                        <a href="/details/@studentItem.Id">Details</a> |
+                        <a href="/edit/@studentItem.Id">Edit</a>
+                    </td>
+                </tr>
+            }
+
+            <tr>
+                <th scope="row">0</th>
+                <td>User</td>
+                <td>Email</td>
+                <td>Age</td>
+            </tr>
+
+        </tbody>
+    </table>
+}
+
